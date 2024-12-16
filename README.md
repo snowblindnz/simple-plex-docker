@@ -23,7 +23,7 @@ The network structure for the containers is as follows:
 # Requirements:
 - Server with docker installed
 - Plex account
-- VPN service
+- VPN service that is compatible with glueton (https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers)
 - Free cloudflare account (Your own domain is reccomended. If you have no domain, overseer will be available via a random xxxxx.trycloudflare.com subdomain)
 
 # Files to download:
