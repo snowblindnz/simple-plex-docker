@@ -1,7 +1,7 @@
 # simple-plex-docker
 A simple Plex/VPN/Sonarr/Radarr/Prowlarr/QBittorrent/Overseer config
 
-This docker will set up the following services:
+This docker will create 8 docker containers:
 - Plex
 - Overseer
 - Glueton VPN (Compatible with 20+ providors) which routes external network traffic for:
