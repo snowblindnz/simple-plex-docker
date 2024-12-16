@@ -15,12 +15,12 @@ This docker-compose will create 8 docker containers:
 - docker-compose.yml - contains the generic details and setup for the docker containers. You shouldnt need to edit anything here.
 - config.yml - Config for all the containers. You will need to edit this to set directories, timezones, passwords, etc..
 
-## Step 1: Download and setting the config:
-1. Download docker-compose.xml and config.xml to the directory you wish to run it from on your server.
-2. Open the config.xml and search and replace the following variables
+## Step 1: Download and set the config:
+1. Download docker-compose.yml and config.yml to the directory you wish run your docker from.
+2. Open the config.yml and read through the configuration details. Some variables you will need to change are:
    - docker_folder - the root directory where containers will create their config folders and files (created on first run).
    - media_folder - the root directory where your /movies, /tv, /downloads, /uncomplete directories are.
-3. VPN Config: scroll down to the gluten vpn config and set the service: vpn_name / vpn_username / vpn_password / country config. This varies depending on your VPN providor.
+   - VPN Config: scroll down to the gluten vpn config and set the VPN config. This varies depending on your VPN provider. Full configuration details for providers are listed here: https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers .
 4. Cloudflare tunnel config: Login to cloudflare and create a tunnel, this will provide you with a tunnel key. Paste this over the cloudflare_token variable.
 
 ## Step 2: Running the server:
