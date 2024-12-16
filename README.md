@@ -14,7 +14,7 @@ This docker-compose will create 8 docker containers:
 
 The network structure for the containers is as follows:
 
-![Network Structure](/network.jpg?raw=true "Optional Title")
+![Network Structure](/network.png?raw=true "Optional Title")
 
 - Plex traffic is routed directly to the internet. All plex traffic is TLS encrypted.
 - Overseer traffic is secured via cloudlfare tunnel (no issues with dynamic IPs/reverse Proxies)
