@@ -4,7 +4,7 @@ A simple Plex/VPN/Sonarr/Radarr/Prowlarr/QBittorrent/Overseer config
 This docker-compose will create 8 docker containers:
 - Plex
 - Overseer
-- Glueton VPN (Compatible with 20+ providors) which routes external network traffic for:
+- Glueton VPN (Compatible with 20+ providers) which routes external network traffic for:
     - Sonarr
     - Radarr
     - Prowlarr
