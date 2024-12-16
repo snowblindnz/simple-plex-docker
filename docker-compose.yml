@@ -1,0 +1,92 @@
+services:
+    plex:
+        extends:
+            file: config.yml
+            service: plex-config
+        image: lscr.io/linuxserver/plex:latest
+        container_name: plex
+        network_mode: host 
+        environment:
+            - VERSION=docker
+        restart: unless-stopped
+    gluetun:
+        extends:
+            file: config.yml
+            service: gluetun-config
+        image: qmcgaw/gluetun
+        container_name: gluetun
+        hostname: gluetun
+        cap_add:
+          - NET_ADMIN
+        devices:
+          - /dev/net/tun:/dev/net/tun
+        ports:
+          - 6881:6881
+          - 6881:6881/udp
+          - 8080:8080 # qbittorrent
+          - 8989:8989 # Sonarr
+          - 7878:7878 # Radarr
+          - 9696:9696 # Prowlarr
+    qbittorrent:
+        extends:
+            file: config.yml
+            service: qbittorrent-config
+        container_name: qbittorrent
+        privileged: true
+        network_mode: "service:gluetun"
+        environment:
+            - WEBUI_PORT=8080
+            - TORRENTING_PORT=6881
+        depends_on:
+            - gluetun
+        image: lscr.io/linuxserver/qbittorrent:libtorrentv1
+        restart: unless-stopped
+    sonarr:
+        extends:
+            file: config.yml
+            service: sonarr-config
+        network_mode: "service:gluetun"
+        image: lscr.io/linuxserver/sonarr:latest
+        container_name: sonarr
+        restart: unless-stopped
+    radarr:
+        extends:
+            file: config.yml
+            service: radarr-config
+        network_mode: "service:gluetun"
+        image: lscr.io/linuxserver/radarr:latest
+        container_name: radarr
+        depends_on:
+            - gluetun
+        restart: unless-stopped
+    prowlarr:
+        extends:
+            file: config.yml
+            service: prowlarr-config
+        network_mode: "service:gluetun"
+        image: lscr.io/linuxserver/prowlarr:latest
+        container_name: prowlarr
+        restart: unless-stopped
+    overseerr:
+        extends:
+            file: config.yml
+            service: overseerr-config
+        image: lscr.io/linuxserver/overseerr:latest
+        container_name: overseerr
+        ports:
+            - 5055:5055
+        restart: unless-stopped
+        networks:
+          - tunnel
+    cloudflared:
+        extends:
+            file: config.yml
+            service: cloudflared-config
+        container_name: cloudflared
+        image: cloudflare/cloudflared:latest
+        restart: unless-stopped
+        networks:
+          - tunnel
+networks:
+  tunnel:
+    driver: bridge

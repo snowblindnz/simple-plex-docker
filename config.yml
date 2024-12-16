@@ -1,0 +1,67 @@
+services:
+    user-config:
+        environment:
+            - PUID=1000 # Change this to your user ID
+            - PGID=1000 # Change this to your group ID
+            - TZ=Etc/UTC # Change this to your timezone
+    plex-config:
+        extends:
+            service: user-config
+        environment:
+            - PLEX_CLAIM= #optional so server auto-logs in https://www.plex.tv/claim
+        volumes:
+            - /docker_folder/plex:/config
+            - /media_folder/tv:/tv
+            - /media_folder/movies:/movies
+        devices:
+            - /dev/dri/renderD128  # Linux only: AMD iGPU device path (adjust if necessary, run 'ls /dev/dri' in terminal to see path)
+        shm_size: "2gb" #transcoding video memory limit
+    qbittorrent-config:
+        extends:
+            service: user-config
+        environment:
+            - LAN_NETWORK=server_ip #your PCs IP address
+        volumes:
+            - /docker_folder/qbittorrent:/config
+            - /media_folder/downloads:/downloads
+    sonarr-config:
+        extends:
+            service: user-config
+        volumes:
+            - /docker_folder/sonarr:/config
+            - /media_folder/tv:/tv
+            - /media_folder/downloads:/downloads
+    radarr-config:
+        extends:
+            service: user-config
+        volumes:
+            - /docker_folder/radarr:/config
+            - /media_folder/movies:/movies
+            - /media_folder/downloads:/downloads
+    overseerr-config:
+        extends:
+            service: user-config
+        volumes:
+            - /docker_folder/overseerr:/config
+    prowlarr-config:
+        extends:
+            service: user-config
+        volumes:
+            - /docker_folder/prowlarr:/config
+    gluetun-config:
+        extends:
+            service: user-config
+        volumes:
+            - /docker_folder/gluetun:/gluetun
+        environment:
+          # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
+          - VPN_SERVICE_PROVIDER=nordvpn #example provider, details below are examples only!
+          - VPN_TYPE=openvpn          
+          - OPENVPN_USER=vpn_key
+          - OPENVPN_PASSWORD=vpn_password
+          - SERVER_COUNTRIES=United States #optional, will connect to random otherwise
+          - UPDATER_PERIOD=24h
+    cloudflared-config:
+        extends:
+            service: user-config
+        command: tunnel --no-autoupdate run --token cloudflare_token
