@@ -9,7 +9,7 @@ This docker-compose will create 8 docker containers:
     - Radarr
     - Prowlarr
     - QBittorrent
-- (optional) Cloudflare tunnel for accessing Overseer remotely.
+- (optional) Cloudflare tunnel for accessing Overseer remotely (requires cloudflare account and your own domain).
 
 # Files to download:
 - docker-compose.yml - contains the generic details and setup for the docker containers. You shouldnt need to edit anything here.
