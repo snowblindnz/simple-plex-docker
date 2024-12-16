@@ -15,17 +15,28 @@ When live, your network structure will be as follows:
 
 (img)
 
+Traffic is secured as follows:
+- Plex traffic is TLS secured to trusted clients, and connect through plexes website.
+- Overseer traffic is secured via cloudlfare tunnel (no worries about dynamic IPs/reverse Proxies)
+- Torrent searching and downloading is routed via your VPN providor.
+
+# Requirements:
+- Server with docker installed
+- Plex account
+- VPN service
+- Free cloudflare account (Your own domain is reccomended. If you have no domain, overseer will be available via a random xxxxx.trycloudflare.com subdomain)
+
 # Files to download:
 - docker-compose.yml - contains the generic details and setup for the docker containers. You shouldnt need to edit anything here.
 - config.yml - Config for all the containers. You will need to edit this to set directories, timezones, passwords, etc..
 
 ## Step 1: Download and set the config:
 1. Download docker-compose.yml and config.yml to the directory you wish run your docker from.
-2. Open the config.yml and read through the configuration details. Some variables you will need to change are:
-   - docker_folder - the root directory where containers will create their config folders and files (created on first run).
-   - media_folder - the root directory where your /movies, /tv, /downloads, /uncomplete directories are.
-   - VPN Config: scroll down to the gluten vpn config and set the VPN config. This varies depending on your VPN provider. Full configuration details for providers are listed here: https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers .
-   - Cloudflare tunnel config: Login to cloudflare and create a tunnel, this will provide you with a tunnel key. Paste this over the cloudflare_token variable.
+2. Open the config.yml and read through the configuration details. Some things you will need to change are:
+   - Search and replace: docker_folder - the root directory where containers will create their config folders and files (created on first run, then loaded/updated whenever docker is running).
+   - Search and replace: media_folder - the root directory where your /movies, /tv, /downloads, /uncomplete directories are. 
+   - VPN config: scroll down to the gluten vpn config and set up your VPN. This varies depending on your VPN provider. Full configuration details for glueton supported VPNs are listed here: https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers .
+   - Cloudflare tunnel config: Login to cloudflare and go to Zero Trust -> Networks -> Tunnels. Create a tunnel of type 'cloudflared'. this will show you a command to run. Copy and paste this command into a text editor, and copy the token value. Paste it over  'cloudflare_token' in the config.yml. On the cloudflare page, click next and select a subdomain and domain to host the tunel on. Then for the service, select 'https', and enter 'localhost:8000'. This will route the tunnel through to Overseer.
 
 ## Step 2: Running the server:
 After setting up the config.yml, open the terminal and navigate to the docker-compose.yml location and run `sudo docker-compose up -d`
