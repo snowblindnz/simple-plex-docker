@@ -21,7 +21,7 @@ This docker-compose will create 8 docker containers:
    - docker_folder - the root directory where containers will create their config folders and files (created on first run).
    - media_folder - the root directory where your /movies, /tv, /downloads, /uncomplete directories are.
    - VPN Config: scroll down to the gluten vpn config and set the VPN config. This varies depending on your VPN provider. Full configuration details for providers are listed here: https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers .
-4. Cloudflare tunnel config: Login to cloudflare and create a tunnel, this will provide you with a tunnel key. Paste this over the cloudflare_token variable.
+   - Cloudflare tunnel config: Login to cloudflare and create a tunnel, this will provide you with a tunnel key. Paste this over the cloudflare_token variable.
 
 ## Step 2: Running the server:
 Navigate to the docker-compose.yml and run `sudo docker-compose up -d`
