@@ -24,7 +24,7 @@ This docker-compose will create 8 docker containers:
    - Cloudflare tunnel config: Login to cloudflare and create a tunnel, this will provide you with a tunnel key. Paste this over the cloudflare_token variable.
 
 ## Step 2: Running the server:
-Navigate to the docker-compose.yml and run `sudo docker-compose up -d`
+After setting up the config.yml, open the terminal and navigate to the docker-compose.yml location and run `sudo docker-compose up -d`
 
 To stop the server, run `sudo docker-compose down` 
 
