@@ -9,16 +9,16 @@ This docker-compose will create 8 docker containers:
     - Radarr
     - Prowlarr
     - QBittorrent
-- (optional) Cloudflare tunnel for accessing Overseer remotely (requires cloudflare account and your own domain).
+- Cloudflare tunnel which routes access to:
+    - Overseer
 
-When live, your network structure will be as follows:
+The network structure for the containers is as follows:
 
 (img)
 
-Traffic is secured as follows:
-- Plex traffic is TLS secured to trusted clients, and connect through plexes website.
-- Overseer traffic is secured via cloudlfare tunnel (no worries about dynamic IPs/reverse Proxies)
-- Torrent searching and downloading is routed via your VPN providor.
+- Plex traffic is routed directly to the internet. plex traffic is TLS secured to trusted clients.
+- Overseer traffic is secured via cloudlfare tunnel (no issues with dynamic IPs/reverse Proxies)
+- Torrent searching and downloading is secured via glueton forcing all external traffic for these containers to go through your VPN provider.
 
 # Requirements:
 - Server with docker installed
