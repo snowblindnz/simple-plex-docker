@@ -16,7 +16,7 @@ The network structure for the containers is as follows:
 
 (img)
 
-- Plex traffic is routed directly to the internet. plex traffic is TLS secured to trusted clients.
+- Plex traffic is routed directly to the internet. All plex traffic is TLS encrypted.
 - Overseer traffic is secured via cloudlfare tunnel (no issues with dynamic IPs/reverse Proxies)
 - Torrent searching and downloading is secured via glueton forcing all external traffic for these containers to go through your VPN provider.
 
