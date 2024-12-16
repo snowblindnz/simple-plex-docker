@@ -11,6 +11,10 @@ This docker-compose will create 8 docker containers:
     - QBittorrent
 - (optional) Cloudflare tunnel for accessing Overseer remotely (requires cloudflare account and your own domain).
 
+When live, your network structure will be as follows:
+
+(img)
+
 # Files to download:
 - docker-compose.yml - contains the generic details and setup for the docker containers. You shouldnt need to edit anything here.
 - config.yml - Config for all the containers. You will need to edit this to set directories, timezones, passwords, etc..
