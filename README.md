@@ -1,4 +1,4 @@
-# simple-plex-docker
+# Simple Plex Docker
 A simple Plex/VPN/Sonarr/Radarr/Prowlarr/QBittorrent/Overseer config
 
 This docker-compose will create 8 docker containers:
