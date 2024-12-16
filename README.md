@@ -30,35 +30,33 @@ The server should now be running. Run `sudo docker-compose down` to stop the ser
 
 ## Step 3: Setting up the server:
 1. Set up plex: Navigate to http://localhost:8000 and login to your plex server. Once logged in:
-   a) Under advanced settings, enforce TLS encryption
-   b) Set your movies and tv library folders to /movies and /tv
-   b) Copy your plex API key (used later on)
+    - Under advanced settings, enforce TLS encryption
+    - Set your movies and tv library folders to /movies and /tv
+    - Copy your plex API key (used later on)
 2. set up qbittorrent: Navigate to http://localhost:8000 and login to the qbittorrent web interface:
-   a) Set up the bittorrent configuration
-   b) Set up the web admin configuration (used later on)
+   - Set up the bittorrent configuration
+   - Set up the web admin configuration (used later on)
 3. Set up prowlerr: Navigate to  http://localhost:8000 and login to the prowlerr server.
-   a) Create/add some trackers   
-   b) copy the Prowller API key (used later on)
+   - Create/add some trackers   
+   - copy the Prowller API key (used later on)
 4. Set up Sonarr:  Navigate to http://localhost:8000 and login to the sonarr server.
-   a) enter the prowller API key
-   b) enter the plex API key
-   c) enter the qbittorrent login details
-   d) set the tv library folder
-   e) set the quality restrictions and other configuration
-   f) write down the sonarr API key (used later on)
+   - enter the prowller API key
+   - enter the plex API key
+   - enter the qbittorrent login details
+   - set the tv library folder
+   - set the quality restrictions and other configuration
+   - write down the sonarr API key (used later on)
 5. Set up Radarr: Navigate to http://localhost:8000 and login to the radarr server.
-   a) enter the prowller API key
-   b) enter the plex API key
-   c) enter the qbittorrent login details
-   d) set the tv library folder
-   e) set the quality restrictions and other configuration
-   f) write down the radarr API key (used later on)
+   - enter the prowller API key
+   - enter the plex API key
+   - enter the qbittorrent login details
+   - set the tv library folder
+   - set the quality restrictions and other configuration
+   - write down the radarr API key (used later on)
 6. Set up Overseer: Navigate to http://localhost:8000 and login to the overseer server.
-   a) enter the plex API key
-   b) enter the sonarr API key
-   c) enter the radarr API key
-   d) set up the external domain
-   e) create user accounts and request rules
-7. Cloudflare tunnel: Set you cloudflare tunnel to route traffic to http://localhost:8000. You should now be able to connect to overseer over your cloudflare domain.
-
-Once complete your server should be all set up!
+   - enter the plex API key
+   - enter the sonarr API key
+   - enter the radarr API key
+   - set up the external domain
+   - create user accounts and request rules
+7. Cloudflare tunnel: After running the server for the first time, the cloudflare tunnel dashboard should indicate connection success. On the cloudflare website, set you cloudflare tunnel to route traffic to http://localhost:8000. You should now be able to connect to overseer remotely through your tunnels subdomain.
