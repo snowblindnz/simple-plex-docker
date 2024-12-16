@@ -25,8 +25,8 @@ This docker-compose will create 8 docker containers:
 
 ## Step 2: Running the server:
 Navigate to the docker-compose.yml and run
-sudo docker-compose up -d
-The server should now be running.
+`sudo docker-compose up -d`
+The server should now be running. Run `sudo docker-compose down` to stop the server.
 
 ## Step 3: Setting up the server:
 1. Set up plex: Navigate to http://localhost:8000 and login to your plex server. Once logged in:
