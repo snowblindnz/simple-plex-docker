@@ -79,5 +79,3 @@ Docker has now downloaded all the containers/software and switched them on, but 
    - Create local user accounts and request rules
 7. Cloudflare tunnel: After running the server for the first time, the cloudflare tunnel dashboard should indicate connection success. Overseer should be available over your tunnel via https://your.domain.com (no port required).
 
-## Step 4: Admin logins
-After initial configurtion, you should keep the following URLs bookmarked. 
