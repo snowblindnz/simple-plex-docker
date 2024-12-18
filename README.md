@@ -1,7 +1,7 @@
 # Simple Plex Docker
 A simple Plex/VPN/Sonarr/Radarr/Prowlarr/qBittorrent/Overseer config
 
-This docker-compose will create 8 docker containers:
+This docker-compose will create 9 docker containers:
 - Plex
 - Overseer
 - Glueton VPN (Compatible with 20+ providers) which routes external network traffic for:
@@ -79,3 +79,5 @@ Docker has now downloaded all the containers/software and switched them on, but 
    - Create local user accounts and request rules
 7. Cloudflare tunnel: After running the server for the first time, the cloudflare tunnel dashboard should indicate connection success. Overseer should be available over your tunnel via https://your.domain.com (no port required).
 
+# Maintenance
+It is strongly reccomended that you set up a seperate Watchtower container (https://containrrr.dev/watchtower/) which will monitor and auto-update all of your docker containers. This way your system will always be up to date.
