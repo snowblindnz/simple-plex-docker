@@ -42,7 +42,7 @@ The network structure for the containers is as follows:
    - Copy and paste the tunnel command into a text editor, and copy the token value.
    - Paste the token value over  'cloudflare_token' in the config.yml.
    - On the cloudflare page, click next and:
-       - select a subdomain and domain to host the tunel on.
+       - Set a subdomain and domain to host the tunel on.
        - For the service, select 'http', and enter 'localhost:5055'. This will route the tunnel through to Overseer on your local network.
 
 ## Step 2: Running the server:
