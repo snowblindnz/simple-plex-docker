@@ -16,8 +16,8 @@ The network structure for the containers is as follows:
 
 ![Network Structure](/network.png?raw=true "Optional Title")
 
-- Plex traffic is routed directly to the internet. All plex traffic is TLS encrypted.
-- Overseer traffic is accessed via cloudlfare tunnel through an external subdomain (no issues with dynamic IPs/reverse Proxies)
+- Plex traffic is routed directly to the internet. All plex traffic is TLS encrypted. (Plex media server does not work well with VPNs).
+- Overseer traffic is accessed via cloudlfare tunnel through an external subdomain (no issues with dynamic IPs/reverse Proxies).
 - Torrent searching and downloading is secured via glueton forcing all external traffic for these containers to go through your VPN provider.
 
 # Requirements:
@@ -49,7 +49,7 @@ Docker has now downloaded all the containers/software and switched them on, but 
     - Under advanced settings, enforce TLS encryption
     - Set your movies and tv library folders to /movies and /tv
     - Copy the plex API key (used later on)
-2. set up qbittorrent: Navigate to http://localhost:8000 and login to the qbittorrent web interface:
+2. set up qbittorrent: Navigate to http://localhost:8080 and login to the qbittorrent web interface:
    - Set up the bittorrent/seeding configuration
    - Set up the uncomplete folder for downloading, and move to /completed folder when torrents are completed
    - Copy the web admin API key (used later on)
