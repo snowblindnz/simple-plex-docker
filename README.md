@@ -60,7 +60,7 @@ Docker has now downloaded all the containers/software and switched them on, but 
     - Under advanced settings, enforce TLS encryption
     - Set your movies and tv library folders to /movies and /tv
     - Copy the Plex API key (used later on)
-2. set up qBittorrent: Navigate to http://localhost:8080 and login to the qBittorrent web interface:
+2. Set up qBittorrent: Navigate to http://localhost:8080 and login to the qBittorrent web interface:
    - Set up the bittorrent/seeding configuration
    - Set up the uncomplete folder for downloading, and move to /completed folder when torrents are completed
    - Copy the web admin API key (used later on)
