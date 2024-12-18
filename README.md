@@ -30,7 +30,7 @@ The network structure for the containers is as follows:
 - docker-compose.yml - contains the generic details and setup for the docker containers. You shouldnt need to edit anything here.
 - config.yml - Config for all the containers. You will need to edit this to set directories, timezones, passwords, etc..
 
-## Step 1: Download and set the config:
+## Step 1: Set the config:
 - Download docker-compose.yml and config.yml to the directory you wish run your docker from.
 - Open the config.yml and read through the configuration details. Some things you will need to change are:   
    - Search and replace: docker_folder - the root directory where containers will create their config folders and files (created on first run, then loaded/updated whenever docker is running).
@@ -46,9 +46,13 @@ The network structure for the containers is as follows:
        - For the service, select 'http', and enter 'localhost:5055'. This will route the tunnel through to Overseer on your local network.
 
 ## Step 2: Running the server:
-After setting up the config.yml, open the terminal and navigate to the docker-compose.yml location and run `sudo docker-compose up -d`
+### Linux:
+Open the terminal and navigate to the docker-compose.yml folder and run `sudo docker-compose up -d`
 
 To stop the server, run `sudo docker-compose down` 
+
+### Windows users:
+Use the docker software to start/stop the containers.
 
 ## Step 3: Initial configuration
 Docker has now downloaded all the containers/software and switched them on, but they have not been configured to work together, folder locations, logins etc. You need to do the following intial set up. As some containers require API keys from other containers to talk to each other, it is reccommended to set them up in this order. You may need to replace [localhost] with your servers IP address if accessing these links from a different computer on your local network. Note that local SSL will not be valid for these services, so you'll need to allow exceptions in your browser to view these services.
